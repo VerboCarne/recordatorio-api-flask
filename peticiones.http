@@ -18,14 +18,14 @@ Content-Type: application/json
 ### Listar todos los recordatorios
 GET http://localhost:5000/api/reminders
 
-### Actualizar un recordatorio (reemplaza el ID por uno real después de crear)
-PATCH http://localhost:5000/api/reminders/REEMPLAZA_ID
+### Actualizar un recordatorio
+PATCH http://localhost:5000/api/reminders/PASTE_ID_HERE
 Content-Type: application/json
 
 {
-  "content": "Estudiar Flask",
+  "content": "Estudiar Flask actualizado",
   "important": false
 }
 
-### Borrar un recordatorio (reemplaza el ID por uno real)
-DELETE http://localhost:5000/api/reminders/REEMPLAZA_ID
+### Borrar un recordatorio
+DELETE http://localhost:5000/api/reminders/PASTE_ID_HERE
