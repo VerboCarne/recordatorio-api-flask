@@ -1,0 +1,31 @@
+### Crear recordatorio
+POST http://localhost:5000/api/reminders
+Content-Type: application/json
+
+{
+  "content": "Estudiar para la prueba",
+  "important": true
+}
+
+### Crear recordatorio sin importante
+POST http://localhost:5000/api/reminders
+Content-Type: application/json
+
+{
+  "content": "Comprar pan"
+}
+
+### Listar todos los recordatorios
+GET http://localhost:5000/api/reminders
+
+### Actualizar un recordatorio (reemplaza el ID por uno real después de crear)
+PATCH http://localhost:5000/api/reminders/REEMPLAZA_ID
+Content-Type: application/json
+
+{
+  "content": "Estudiar Flask",
+  "important": false
+}
+
+### Borrar un recordatorio (reemplaza el ID por uno real)
+DELETE http://localhost:5000/api/reminders/REEMPLAZA_ID

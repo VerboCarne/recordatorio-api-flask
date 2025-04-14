@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Recordatorios</title>
+    <style>
+        body { font-family: Arial; padding: 20px; }
+        form { margin-bottom: 20px; }
+        .recordatorio { border: 1px solid #ccc; padding: 10px; margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Mis Recordatorios</h1>
+
+    <form action="/create" method="POST">
+        <input type="text" name="content" placeholder="Contenido" required maxlength="120">
+        <label><input type="checkbox" name="important"> Importante</label>
+        <button type="submit">Crear</button>
+    </form>
+
+    {% for r in reminders %}
+        <div class="recordatorio">
+            <form action="/update/{{ r.id }}" method="POST">
+                <input type="text" name="content" value="{{ r.content }}" maxlength="120">
+                <label><input type="checkbox" name="important" {% if r.important %}checked{% endif %}> Importante</label>
+                <button type="submit">Actualizar</button>
+            </form>
+            <form action="/delete/{{ r.id }}" method="POST" style="margin-top: 5px;">
+                <button type="submit">Eliminar</button>
+            </form>
+            <small>ID: {{ r.id }}</small><br>
+            <small>Creado en: {{ r.createdAt }}</small>
+        </div>
+    {% endfor %}
+</body>
+</html>
